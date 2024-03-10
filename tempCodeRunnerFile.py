@@ -1,0 +1,1 @@
+print('full_name :' +people[first_name]+' ' + people[last_name])
