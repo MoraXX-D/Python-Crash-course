@@ -255,4 +255,44 @@ A function defination can have multiple parameters, a function call may need mul
 
 *keyword arguments* consists of a variable name and a value; list and dictionaries of values .
 
-**
+# positional argument
+In positional arguments the argument passed in function call must follow the order of parameters
+in function defination.
+
+def describe_pet(pet_type, pet_name):
+    print("I have a " + pet_type.title())
+    print("My " + pet_type.title() + "'s name is " + pet_name.title())
+          
+    
+describe_pet('Dog','oat meal')
+
+# keyword argument
+A keyword argument is a name-value pair that you pass to a function. you directly assosiate the 
+name and the value within the argument, so when you pass the argument to the function, there is no 
+confusion 
+
+def describe_pet(pet_type, pet_name):
+    print("I have a " + pet_type.title())
+    print("My " + pet_type.title() + "'s name is " + pet_name.title())
+          
+    
+describe_pet(pet_type = 'Dog', pet_name = 'oat meal')
+
+*** Default values ***
+when writing a function, we can define a default *value* for each parameter. 
+if an argument for a parameter is provided in the function call, python uses the 
+argument value. 
+
+def describe_pet(pet_namek, pet_type = 'Dog'):
+    print("I have a " + pet_type.title())
+    print("My " + pet_type.title() + "'s name is " + pet_name.title())
+          
+    
+describe_pet('oat meal')
+
+**NOTE**
+When using default value, any parameter with a default value needs to be listed after all
+the parameters that dont have default values. This allow Python to continue interpretating 
+positional argument correctely.
+
+
