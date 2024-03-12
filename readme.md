@@ -296,3 +296,10 @@ the parameters that dont have default values. This allow Python to continue inte
 positional argument correctely.
 
 
+*optional argument* - we can use default value to make a argument optional 
+for ex. in case of 'middle name'
+
+*We can create a copy of list using slice method*
+unprinted_model_copy = unprinted_model[:]  #copy of original list using slice
+
+
