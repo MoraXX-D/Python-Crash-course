@@ -302,4 +302,87 @@ for ex. in case of 'middle name'
 *We can create a copy of list using slice method*
 unprinted_model_copy = unprinted_model[:]  #copy of original list using slice
 
+**Pass statement**
+* The pass statement does nothing. It can be used when a statement is required syntactically but the program requires no action. For example:
 
+while True:
+    pass  # Busy-wait for keyboard interrupt (Ctrl+C)
+
+
+* Another place pass can be used is as a place-holder for a function or conditional body when you are working on new code, allowing you to keep thinking at a more abstract level. The pass is silently ignored:
+
+def initlog(*args):
+    pass   # Remember to implement this!
+
+**Match Statement**
+A match statement takes an expression and compares its value to successive patterns given as one or more case blocks. This is superficially similar to a switch statement in C, Java or JavaScript (and many other languages), but it’s more similar to pattern matching in languages like Rust or Haskell. Only the first pattern that matches gets executed and it can also extract components (sequence elements or object attributes) from the value into variables.
+
+The simplest form compares a subject value against one or more literals:
+
+def http_error(status):
+    match status:
+        case 400:
+            return "Bad request"
+        case 404:
+            return "Not found"
+        case 418:
+            return "I'm a teapot"
+        case _:
+            return "Something's wrong with the internet"
+        
+
+**Arbitary Argument**
+In Python, arbitrary arguments are a special syntax that allows you to pass an unknown number of arguments to a function. This is done by using the asterisk (*) operator before the parameter name in the function definition.
+
+def print_args(*args):
+  for arg in args:
+    print(arg)
+
+print_args(1, 2, 3, 4, 5)
+
+Normally, these variadic arguments will be last in the list of formal parameters, because they scoop up all remaining input arguments that are passed to the function. Any formal parameters which occur after the *args parameter are ‘keyword-only’ arguments, meaning that they can only be used as keywords rather than positional arguments.
+
+
+def concat(*args, sep="/"):
+    return sep.join(args)
+
+concat("earth", "mars", "venus")
+'earth/mars/venus'
+concat("earth", "mars", "venus", sep=".")
+'earth.mars.venus'
+
+**Unpacking Argument lists**
+* The reverse situation occurs when the arguments are already in a list or tuple but need to be unpacked for a function call requiring separate positional arguments. For instance, the built-in range() function expects separate start and stop arguments. If they are not available separately, write the function call with the *-operator to unpack the arguments out of a list or tuple:
+
+list(range(3, 6))            # normal call with separate arguments
+[3, 4, 5]
+args = [3, 6]
+list(range(*args))            # call with arguments unpacked from a list
+[3, 4, 5]
+
+* In the same fashion, dictionaries can deliver keyword arguments with the **-operator:
+
+def parrot(voltage, state='a stiff', action='voom'):
+    print("-- This parrot wouldn't", action, end=' ')
+    print("if you put", voltage, "volts through it.", end=' ')
+    print("E's", state, "!")
+
+d = {"voltage": "four million", "state": "bleedin' demised", "action": "VOOM"}
+parrot(**d)
+-- This parrot wouldn't VOOM if you put four million volts through it. E's bleedin' demised !
+
+**Lamda function**
+Small anonymous functions can be created with the lambda keyword. This function returns the sum of its two arguments: lambda a, b: a+b. Lambda functions can be used wherever function objects are required. They are syntactically restricted to a single expression.
+
+def make_incrementor(n):
+    return lambda x: x + n
+
+f = make_incrementor(42)
+
+
+f(0)
+42
+f(1)
+43
+
+**Function anotations**
