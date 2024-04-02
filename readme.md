@@ -386,3 +386,51 @@ f(1)
 43
 
 **Function anotations**
+* They are evaluated at the compile time not at run time. They are used by a third party or external python library.
+
+1. Function annotation for simple parameters: we can use colons after the argument name and then we can write the expression after the colon. The expression can be anything like any data type of the argument or any string which contains any message.
+
+def functionName(argumentName : expression): 
+
+2. Function annotations for excess parameters:If we want an arbitrary number of arguments as function parameters with the same expression, then we can use this way of function annotation.
+
+def fxn(*arg1: expression1,**arg2:expression2): 
+
+3. Function annotations for the return type: Annotation of the return type is done by the '->' operator.
+
+def fxn(var1:expression) -> expression2:  
+
+4. Using '__annotations__':The attribute __annotations__ is used to get all the annotations in a function. It returns the dictionary, which contains the pairs of keys and values where the key will be the arguments and the value will be their individual expression.
+
+
+def fibonacci(n:'int', res:'list'=[])-> 'list':  
+    if n == 0:  
+        return res  
+    else:  
+        if len(res)< 2:  
+            res.append(1)  
+            fibonacci(n-1, res)  
+        else:  
+            last = res[-1]  
+            second_last = res[-2]  
+            res.append(last + second_last)  
+            fibonacci(n-1, res)  
+        return res  
+print(fibonacci(8))  
+print(fibonacci.__annotations__)  
+
+****
+**Alias**
+* If the name of the function you're importing might conflict with an existing name in your program or if the function
+name is long,we can use a short ,unique alias - an alternate name similar to a nickname
+ex-
+
+from pizza import make_pizza as mp
+
+* similarly we can rename an entire module
+
+import pizza as p
+
+* we can use * to import all function in module
+
+from piza import *
