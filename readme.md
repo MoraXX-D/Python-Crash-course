@@ -419,7 +419,6 @@ def fibonacci(n:'int', res:'list'=[])-> 'list':
 print(fibonacci(8))  
 print(fibonacci.__annotations__)  
 
-****
 **Alias**
 * If the name of the function you're importing might conflict with an existing name in your program or if the function
 name is long,we can use a short ,unique alias - an alternate name similar to a nickname
@@ -434,3 +433,44 @@ import pizza as p
 * we can use * to import all function in module
 
 from piza import *
+
+****
+### Classes and Objects
+
+*  A class represent a real world thing. It is user defined data type.
+* An object is a *instantiation* of class.
+* A function that is a part of class is called method.
+* the `__init__ ` method is a special method Python runs automatically whenever we create a new instance based on the class.
+* To access the attributes of an instance, we use dot notation.
+* In some cases, such as when setting a default value, it makes sense to specify this initial value in the body of the __init__() 
+method; if you do this for an attribute, you don’t have to include a parameter for that attribute  
+
+`class Car():
+    def __init__(self,make,model,year) -> None:
+        '''initialize attribute to describe a car'''
+        self.make = make
+        self.model = model
+        self.year = year
+        self.ododmeter_reading = 0
+
+    def get_description_name(self):
+        '''return a nearly formatted descriptive name'''
+        long_name = str(self.year) + ' ' + self.make + ' ' + self.model
+        return long_name.title()
+    
+    def read_odometer(self):
+        '''print a message shoing car mileage'''
+        print("This car has " + str(self.ododmeter_reading) + " mileage on it")
+
+    def update_odometer_reading(self,mileage):
+        '''this function update odometer reading using a method and preventing roll back'''
+        if mileage > self.ododmeter_reading:
+            self.ododmeter_reading = mileage
+        else:
+            print("You cannot roll back the reading.")
+    
+my_new_car = Car('audi','a4',2016)
+print(my_new_car.get_description_name())
+my_new_car.read_odometer()
+
+# Inheritance
