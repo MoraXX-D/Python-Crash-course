@@ -543,4 +543,4 @@ class ElectricCar(Car):
 
     def fill_gas_tank(self):
         '''Overridding the parent class method'''
-        print("It is an electic car hence it doesn't need gas")```
+        print("It is an electic car hence it doesn't need gas")
