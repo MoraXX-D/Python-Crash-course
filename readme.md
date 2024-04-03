@@ -544,3 +544,62 @@ class ElectricCar(Car):
     def fill_gas_tank(self):
         '''Overridding the parent class method'''
         print("It is an electic car hence it doesn't need gas")
+
+```
+****
+### Files and Exceptions
+* *exceptions* are special objects Python creates to manage errors that arise while a program is running.
+* The json module allows you to save user data so it isn’t lost when your program stops running.
+
+# Reading from a file
+*  You can read the entire contents of a file, or you can work through the file one line at a time. 
+*  The ***open()*** function needs one argument: the name of the file you want open. Python looks for this file in 
+the directory where the program that’s currently being executed is stored.
+* The open()function returns an object representing the file.
+* The keyword ***with*** closes the file once access to it is no longer needed. Notice how we call open() in this program but not close(). 
+You could open and close the file by calling open() and close(), but if a bug in your program prevents the close() statement from being executed,
+the file may never close'
+* the ***read()*** method in the second line of our program to read the entire contents of the file and store it as one long string in contents.
+
+**NOTE** -> The only difference between this output and the original file is the extra blank line at the end of the output. The blank line appears because 
+read() returns an empty string when it reaches the end of the file; this empty string shows up as a blank line. If you want to remove the extra blank line, 
+you can use rstrip() in the print statement:
+* if a file is not in the same directory in which we are working in we need to specify the file location.
+
+`with open('text_files\filename.txt') as file_object:`
+
+* You can also tell Python exactly where the file is on your computer regardless of where the program that’s being executed is stored. 
+This is called an absolute file path.
+
+```
+file_path = 'C:\Users\ehmatthes\other_files\text_files\filename.txt'
+with open(file_path) as file_object:
+```
+
+**Reading line by line**
+
+``
+file_name = 'pi_digits.py' #convention for mentioning file name
+
+with open('pi_digit.txt') as file_object:
+    for line in file_object:
+        print(line)
+``
+
+**Making a list of lines from a file**
+
+``
+file_name = 'pi_digit.txt'
+with open('pi_digit.txt') as file_object:
+    lines = file_object.readlines()
+
+for line in lines:
+    print(line.rstrip())
+``
+
+*  You can open a file in read mode ('r'), write mode ('w'), append mode ('a'), or a mode that allows you to read and write to the file ('r+').
+
+**NOTE** -> The open() function automatically creates the file you’re writing to if it doesn’t already exist. However, 
+be careful opening a file in write mode ('w') because if the file does exist, Python will erase the file before returning the file object.
+
+* . When you open a file in *append mode*, Python doesn’t erase the file before returning the file object
