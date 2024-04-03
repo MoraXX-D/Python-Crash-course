@@ -469,9 +469,9 @@ method; if you do this for an attribute, you don’t have to include a parameter
         else:
             print("You cannot roll back the reading.")
     
-`my_new_car = Car('audi','a4',2016)`
-`print(my_new_car.get_description_name())`
-`my_new_car.read_odometer()`
+```my_new_car = Car('audi','a4',2016)
+print(my_new_car.get_description_name())
+my_new_car.read_odometer()```
 
 # Inheritance
 * You don’t always have to start from scratch when writing a class. If the class you’re writing is a specialized version of another 
@@ -487,7 +487,7 @@ you define a method in the child class with the same name as the method you want
 * The Python standard library is a set of modules included with every Python installation.
 * You can use any function or class in the standard library by including a simple import statement at the top of your file.
 
-class Car():
+```class Car():
     def __init__(self,make,model,year) -> None:
         '''initialize attribute to describe a car'''
         self.make = make
@@ -543,4 +543,4 @@ class ElectricCar(Car):
 
     def fill_gas_tank(self):
         '''Overridding the parent class method'''
-        print("It is an electic car hence it doesn't need gas")
+        print("It is an electic car hence it doesn't need gas")```
