@@ -469,8 +469,78 @@ method; if you do this for an attribute, you don’t have to include a parameter
         else:
             print("You cannot roll back the reading.")
     
-my_new_car = Car('audi','a4',2016)
-print(my_new_car.get_description_name())
-my_new_car.read_odometer()
+`my_new_car = Car('audi','a4',2016)`
+`print(my_new_car.get_description_name())`
+`my_new_car.read_odometer()`
 
 # Inheritance
+* You don’t always have to start from scratch when writing a class. If the class you’re writing is a specialized version of another 
+class you wrote, you can use inheritance.
+* When one class inherits from another, it automatically takes on all the attributes and methods of the first class.
+*  The original class is 
+called the parent class, and the new class is the child class. 
+* The ***super()*** function at x is a special function that helps Python make connections between the parent and child class. 
+This line tells Python to call the __init__() method from parent class, which gives an instance all the attributes of its parent class.
+* You can override any method from the parent class that doesn’t fit what you’re trying to model with the child class. To do this, 
+you define a method in the child class with the same name as the method you want to override in the parent class.
+* Python lets you store classes in modules and then import the classes you need into your main program.
+* The Python standard library is a set of modules included with every Python installation.
+* You can use any function or class in the standard library by including a simple import statement at the top of your file.
+
+class Car():
+    def __init__(self,make,model,year) -> None:
+        '''initialize attribute to describe a car'''
+        self.make = make
+        self.model = model
+        self.year = year
+        self.ododmeter_reading = 0
+
+    def get_description_name(self):
+        '''return a nearly formatted descriptive name'''
+        long_name = str(self.year) + ' ' + self.make + ' ' + self.model
+        return long_name.title()
+    
+    def read_odometer(self):
+        '''print a message shoing car mileage'''
+        print("This car has " + str(self.ododmeter_reading) + " mileage on it")
+
+    def update_odometer_reading(self,mileage):
+        '''this function update odometer reading using a method and preventing roll back'''
+        if mileage > self.ododmeter_reading:
+            self.ododmeter_reading = mileage
+        else:
+            print("You cannot roll back the reading.")
+
+    def fill_gas_tank(self):
+        '''This method show that it need gas or not'''
+        print("This car need gasoline to run")
+
+class Capacity():
+    def __init__(self):
+        self.capacity = 4
+        self.trunk_capacity = 20
+
+    def no_of_people(self):
+        '''creating new class to show car capacity as doing so in the same class
+        can make it unreadable'''
+        print("This car can fit " + str(self.capacity) + " no of people")
+
+    def trunk(self):
+        '''trunk capacity of the car'''
+        print('This car has a trunk capacity of ' + str(self.trunk_capacity) + ' ltr')
+
+class ElectricCar(Car):
+    '''represent aspect of car, specific to EVs'''
+   
+    def __init__(self,make,model,year):
+        super().__init__(make,model,year)
+        self.battery_size = 70
+        self.capacity = Capacity()
+
+    def describe_battery(self):
+        '''describing battery'''
+        print("This car has a " + str(self.battery_size) + "-kwh battery")
+
+    def fill_gas_tank(self):
+        '''Overridding the parent class method'''
+        print("It is an electic car hence it doesn't need gas")
