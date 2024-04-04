@@ -547,11 +547,11 @@ class ElectricCar(Car):
 
 ```
 ****
-### Files and Exceptions
+# Files and Exceptions
 * *exceptions* are special objects Python creates to manage errors that arise while a program is running.
 * The json module allows you to save user data so it isn’t lost when your program stops running.
 
-# Reading from a file
+### Reading from a file
 *  You can read the entire contents of a file, or you can work through the file one line at a time. 
 *  The ***open()*** function needs one argument: the name of the file you want open. Python looks for this file in 
 the directory where the program that’s currently being executed is stored.
@@ -603,3 +603,94 @@ for line in lines:
 be careful opening a file in write mode ('w') because if the file does exist, Python will erase the file before returning the file object.
 
 * . When you open a file in *append mode*, Python doesn’t erase the file before returning the file object
+
+# Exceptions
+
+* Python uses special objects called exceptions to manage errors that arise during a program’s execution. Whenever an error occurs that makes Python 
+unsure what to do next, it creates an exception object. If you write code that handles the exception, the program will continue running. If you don’t 
+handle the exception, the program will halt and show a traceback, which includes a report of the exception that was raised.
+
+* Exceptions are handled with try-except blocks. A try-except block asks Python to do something, but it also tells Python what to do if an exception is raised.
+
+```
+print("Give me 2 numbers  and i'll divide it for you")
+print("Enter q to quite")
+
+while True:
+    first_number = input("Enter the first number")
+    if first_number.lower() == 'q':
+        break
+    second_number = input("Enter the second number")
+
+    try:
+        result = int(first_number)/int(second_number)
+    except ZeroDivisionError:
+        print("You cannot devide by zero")
+    else:
+       print(int(result))
+```
+
+**Handeling the file not found error**
+
+```
+'''catching the error'''
+
+file_name = "alice.txt"
+
+try:
+    with open('alice.txt') as file_object:
+        content = file_object.read()
+
+except FileNotFoundError:
+    msg = 'sorry the ' + file_name + ' does not exist'
+    print(msg)
+
+```
+
+```
+# reading words from a text book
+
+file_name = 'alice_in_wonderland.txt'
+
+try:
+    with open('alice_in_wonderland.txt') as file_object:
+        content = file_object.read()
+
+except FileNotFoundError:
+    msg = 'sorry the ' + file_name + ' does not exist'
+    print(msg)
+
+else:
+    # counting the approximate no of word in the file
+    word = content.split()
+    num_words = len(word)
+    print("The file " + file_name + " has about " +
+          str(num_words) + ' words')
+
+```
+**Storing data using json module**
+
+* The json module allows you to dump simple Python data structures into a file and load the data from that file the next time the program runs.
+* *json.dump()* is use to store data.
+* *json.load()* is use to retrive or load data from a saved json file.
+
+```
+import json
+numbers = [2,3,4,5,6,7,8,9,10,11,12,13]
+
+file_name = 'number.json'
+with open('file_name','w') as f_object:
+    json.dump(numbers,f_object)
+```
+
+```
+import json
+
+file_name = 'number.json'
+with open('file_name') as f_object:
+    number = json.load(f_object)
+
+print(number)
+```
+
+*Often, you’ll come to a point where your code will work, but you’ll recognize that you could improve the code by breaking it up into a series of functions that have specific jobs. This process is called refactoring
