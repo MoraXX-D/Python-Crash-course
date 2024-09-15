@@ -693,4 +693,34 @@ with open('file_name') as f_object:
 print(number)
 ```
 
-*Often, you’ll come to a point where your code will work, but you’ll recognize that you could improve the code by breaking it up into a series of functions that have specific jobs. This process is called refactoring
+Often, you’ll come to a point where your code will work, but you’ll recognize that you could improve the code by breaking it up into a series of functions that have specific jobs. This process is called refactoring
+
+**Generator Function** - A function that can give output one-by-one, without storing the complete output and then giving the result as in normal function.
+```
+# Generator function
+def text_fib(n):
+    a,b = 0,1
+    for i in range(n):
+        yield a
+        a,b = b, a+b
+        
+for i in text_fib(10):
+    print(i)
+```
+***Another way of writing the above program***
+
+```
+def text_fib1():
+    a,b = 0,1
+    while True:
+        yield a
+        a, b = b, a+b
+
+fib = text_fib1()
+
+for i in range(10):
+    print(next(fib))
+
+```
+
+### *For Loop* Convert the iterable object into iterator then uses the ***next()*** method to access the next object, And only iterable can be converted into iterator
