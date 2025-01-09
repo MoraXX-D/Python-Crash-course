@@ -1,0 +1,11 @@
+01/09/2025 INFO added to file and file closed
+01/09/2025 INFO exception handled
+01/09/2025 INFO exception handled
+01/09/2025 INFO exception handled
+2025-01-09 16:55:45,984 INFO exception handled
+2025-01-09 16:56:51,163 INFO John
+2025-01-09 16:56:51,163 INFO added to file and file closed
+2025-01-09 16:56:51,163 INFO exception handled
+2025-01-09 16:58:00,261 INFO exception handled
+2025-01-09 16:59:26,224 ERROR An error occurred: [Errno 2] No such file or directory: 'name2.txt'
+2025-01-09 16:59:26,224 INFO exception handled

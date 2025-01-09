@@ -1,0 +1,26 @@
+INFO:root:log this line of execution
+WARNING:root:this is warning
+ERROR:root:this is error
+CRITICAL:root:this is critical
+INFO:root:this is info logging
+ERROR:root:this is error logging
+CRITICAL:root:this is critical logging
+INFO:root:this is info logging
+ERROR:root:this is error logging
+CRITICAL:root:this is critical logging
+INFO:root:this is info logging
+ERROR:root:this is error logging
+CRITICAL:root:this is critical logging
+INFO:root:this is info logging
+ERROR:root:this is error logging
+CRITICAL:root:this is critical logging
+INFO:root:this is info logging
+ERROR:root:this is error logging
+CRITICAL:root:this is critical logging
+INFO:root:log this line of execution
+WARNING:root:this is warning
+ERROR:root:this is error
+CRITICAL:root:this is critical
+INFO:root:this is info logging
+ERROR:root:this is error logging
+CRITICAL:root:this is critical logging

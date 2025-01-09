@@ -24,3 +24,4 @@ for city in cities.keys():
         print(info + " : " + values)
     
     print("\n")
+    
